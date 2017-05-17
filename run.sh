@@ -21,7 +21,7 @@ rm -rf .vagrant
 
 cd ..
 
-zip -r build/vvv.zip tmp
+zip -r -Z store build/vvv.zip tmp
 
 rm -rf tmp
 
