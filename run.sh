@@ -36,7 +36,4 @@ curl -L  http://download.virtualbox.org/virtualbox/5.1.22/VirtualBox-5.1.22-1151
 
 cp resources/linux.txt build/linux/linux.txt
 
-# There's already a copy of vvv-custom.yml in the build folder from earlier
-rm build/vvv-custom.yml
-
 cp resources/* build/
