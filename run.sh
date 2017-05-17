@@ -7,6 +7,8 @@ mkdir -p build tmp
 
 git clone https://github.com/Varying-Vagrant-Vagrants/VVV.git --branch=master tmp
 
+cp resources/vvv-custom.yml tmp/vvv-custom.yml
+
 cd tmp
 
 VVV_SKIP_LOGO=true vagrant plugin install vagrant-triggers
