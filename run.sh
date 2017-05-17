@@ -34,6 +34,8 @@ curl -L  https://releases.hashicorp.com/vagrant/1.9.5/vagrant_1.9.5_x86_64.dmg -
 curl -L  http://download.virtualbox.org/virtualbox/5.1.22/VirtualBox-5.1.22-115126-Win.exe -o build/windows/virtualbox.exe
 curl -L  http://download.virtualbox.org/virtualbox/5.1.22/VirtualBox-5.1.22-115126-OSX.dmg -o build/osx/virtualbox.dmg
 
+cp resources/linux.txt build/linux/linux.txt
+
 # There's already a copy of vvv-custom.yml in the build folder from earlier
 rm build/vvv-custom.yml
 
