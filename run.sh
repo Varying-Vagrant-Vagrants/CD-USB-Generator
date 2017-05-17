@@ -35,5 +35,4 @@ curl -L  http://download.virtualbox.org/virtualbox/5.1.22/VirtualBox-5.1.22-1151
 curl -L  http://download.virtualbox.org/virtualbox/5.1.22/VirtualBox-5.1.22-115126-OSX.dmg -o build/osx/virtualbox.dmg
 
 cp resources/linux.txt build/linux/linux.txt
-
-cp resources/* build/
+cp resources/instructions.html build/instructions.html
