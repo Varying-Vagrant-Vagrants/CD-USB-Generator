@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WordPress Development Environment Instructions</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+			background-color: #2b303b;
+			color: #c0c5ce;
+			padding:1em;
+			font-size:20px;
+            line-height: 1.4em;
+            max-width: 35em;
+            margin: 1em auto;
+		}
+		a {
+			color: #ebcb8b;
+			text-decoration: none;
+		}
+		a:hover,
+		a:active {
+			text-decoration: underline;
+		}
+        code,
+        pre,
+        h1,
+		strong {
+            color: #eff1f5;
+        }
+        h1 {
+            margin-top: 2em;
+        }
+        #wp_logo {
+            text-align: center;
+        }
+        #wp_logo img {
+            width: 6em;
+            height: 6em;
+        }
+	</style>
+</head>
+<body>
+
+<p id="wp_logo"><img src="data:image/png;base64,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" alt="WordPress logo"></p>
+
+<h1>Welcome to Contributor Day!</h1>
+
+<p>This USB drive includes three pieces of software you'll need to quickly set up a local
+development environment for contributing to WordPress:</p>
+
+<ul>
+    <li><strong>Virtualbox</strong> - software for running virtual machines.</li>
+    <li><strong>Vagrant</strong>    - software that creates and configures virtual machines.</li>
+    <li><strong>VVV</strong>        - a Vagrant environment specifically for developing WordPress.</li>
+</ul>
+
+<p>More info about <strong>VVV</strong> can be found at <a href="https://varyingvagrantvagrants.org">VaryingVagrantVagrants.org</a>.</p>
+
+
+<h1>Setup Instructions</h1>
+
+<p><strong>Important:</strong> Windows users should run the command line commands using administrator rights. This can be done by right-clicking <code>cmd.exe</code> and selecting "Run as administrator".</p>
+
+<ol>
+    <li>Copy the contents of the <code>windows</code> or <code>osx</code> directory (as appropriate) from the USB drive onto your computer.</li>
+    <li>Copy <code>vvv.zip</code> from the USB drive onto your computer.</li>
+    <li>Pass the USB drive on to anyone else who needs it.</li>
+    <li>Install Virtualbox and Vagrant using the installers in the <code>windows</code> or <code>osx</code> directory.</li>
+    <li>Extract <code>vvv.zip</code>.</li>
+    <li>Open a command line terminal and navigate into the directory where you extracted <code>vvv.zip</code>.</li>
+    <li>Add the VVV box to Vagrant:
+        <pre>vagrant box add ubuntu/trusty64 vvv-contribute.box</pre>
+    </li>
+    <li>Install Vagrant Hosts Updater:
+        <pre>vagrant plugin install vagrant-hostsupdater</pre>
+    </li>
+    <li>Start up Vagrant:
+        <pre>vagrant up --provider virtualbox</pre>
+    </li>
+    <li>Visit <a href="http://vvv.dev/">vvv.dev</a> in your browser.</li>
+</ol>
+
+<h1>Logging In</h1>
+
+<p>VVV comes with two versions of WordPress, but typically you'll only want to use <a href="http://src.wordpress-develop.dev">src.wordpress-develop.dev</a>.</p>
+
+<p>The wp-admin credentials are as follows:</p>
+
+<ul>
+    <li><strong>Username:</strong> admin</li>
+    <li><strong>Password:</strong> password</li>
+</ul>
+
+<p>Read the <a href="https://varyingvagrantvagrants.org/docs/en-US/default-credentials/">Default Credentials page of the VVV documentation</a> for more info about credentials and the locations of files locally and within the virtual machine.</p>
+
+<h2>Have fun!</h2>
+<h2>The VVV Team</h2>
+
+</body>
+</html>

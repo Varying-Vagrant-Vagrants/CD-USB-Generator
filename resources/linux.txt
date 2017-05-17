@@ -1,0 +1,14 @@
+Virtualbox and Vagrant on Linux
+===============================
+
+Due to the varying flavours of Linux distros available, it's not practical for the
+Virtualbox and Vagrant installers for Linux to be included on this USB drive.
+
+Instead, you can download them from the following URLs:
+
+ * Virtualbox:
+	https://www.virtualbox.org/wiki/Linux_Downloads
+ * Vagrant:
+	https://www.vagrantup.com/downloads.html
+
+While you're waiting for these to download, continue with step 2 in instructions.txt.
