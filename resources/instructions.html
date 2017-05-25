@@ -63,12 +63,13 @@ development environment for contributing to WordPress:</p>
 <p><strong>Important:</strong> Windows users should run the command line commands using administrator rights. This can be done by right-clicking <code>cmd.exe</code> and selecting "Run as administrator".</p>
 
 <ol>
+    <li>Create a directory on your computer to copy files into.</li>
     <li>Copy the contents of the <code>windows</code> or <code>osx</code> directory (as appropriate) from the USB drive onto your computer.</li>
-    <li>Copy <code>vvv.zip</code> from the USB drive onto your computer.</li>
+    <li>Copy <code>vvv.zip</code> and <code>vvv-contribute.box</code> from the USB drive onto your computer.</li>
+    <li>Copy this instructions file onto your computer so you can refer to it after passing the USB drive to someone else.</li>
     <li>Pass the USB drive on to anyone else who needs it.</li>
     <li>Install Virtualbox and Vagrant using the installers in the <code>windows</code> or <code>osx</code> directory.</li>
-    <li>Extract <code>vvv.zip</code>.</li>
-    <li>Open a command line terminal and navigate into the directory where you extracted <code>vvv.zip</code>.</li>
+    <li>Open a command line terminal and navigate into the directory where you copied the files.</li>
     <li>Add the VVV box to Vagrant:
         <pre>vagrant box add ubuntu/trusty64 vvv-contribute.box</pre>
     </li>
@@ -78,6 +79,8 @@ development environment for contributing to WordPress:</p>
     <li>Install Vagrant Triggers:
         <pre>vagrant plugin install vagrant-triggers</pre>
     </li>
+    <li>Extract <code>vvv.zip</code>.</li>
+    <li>Now navigate into the directory that was extracted from <code>vvv.zip</code> The contents should include a file named <code>Vagrantfile</code>.</li>
     <li>Start up Vagrant:
         <pre>vagrant up --provider virtualbox</pre>
     </li>
@@ -86,9 +89,13 @@ development environment for contributing to WordPress:</p>
 
 <h1>Logging In</h1>
 
-<p>VVV comes with two versions of WordPress, but typically you'll only want to use <a href="http://src.wordpress-develop.dev">src.wordpress-develop.dev</a>.</p>
+<p>This pre-provisioned copy of VVV comes with different instances of WordPress.</p>
 
-<p>The wp-admin credentials are as follows:</p>
+<p>For contributing to WordPress Core, you'll use <a href="http://src.wordpress-develop.dev">src.wordpress-develop.dev</a>.</p>
+
+<p>For contributing to WordPress Meta, you'll have development versions of each of the Meta sites listed <a href="https://github.com/WordPress/meta-environment#available-sites">here</a>.</p>
+
+<p>For all of the WordPress instances, the wp-admin credentials are as follows:</p>
 
 <ul>
     <li><strong>Username:</strong> admin</li>
