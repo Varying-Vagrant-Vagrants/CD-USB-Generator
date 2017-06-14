@@ -21,9 +21,9 @@ VVV_SKIP_LOGO=true vagrant destroy --force
 
 rm -rf .vagrant
 
-zip -r ../build/vvv.zip .
-
 cd ..
+
+zip -r build/vvv.zip tmp
 
 rm -rf tmp
 
