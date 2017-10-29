@@ -5,7 +5,7 @@ set -e
 rm -rf build tmp
 mkdir -p build tmp
 
-git clone https://github.com/Varying-Vagrant-Vagrants/VVV.git --branch=master tmp
+git clone https://github.com/Varying-Vagrant-Vagrants/VVV.git --branch=develop tmp
 
 cp resources/vvv-custom.yml tmp/vvv-custom.yml
 
