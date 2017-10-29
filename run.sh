@@ -21,6 +21,8 @@ VVV_SKIP_LOGO=true vagrant destroy --force
 
 rm -rf .vagrant
 
+sed -i '.bak' 's#ubuntu/trusty64#vvv/contribute#' Vagrantfile
+
 cd ..
 
 zip -r build/vvv.zip tmp
