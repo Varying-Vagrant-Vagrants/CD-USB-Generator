@@ -31,10 +31,10 @@ rm -rf tmp
 
 mkdir -p build/windows build/osx build/linux
 
-curl -L  https://releases.hashicorp.com/vagrant/2.0.0/vagrant_2.0.0_x86_64.msi -o build/windows/vagrant.msi
-curl -L  https://releases.hashicorp.com/vagrant/2.0.0/vagrant_2.0.0_x86_64.dmg -o build/osx/vagrant.dmg
-curl -L  http://download.virtualbox.org/virtualbox/5.1.30/VirtualBox-5.1.30-118389-Win.exe -o build/windows/virtualbox.exe
-curl -L  http://download.virtualbox.org/virtualbox/5.1.30/VirtualBox-5.1.30-118389-OSX.dmg -o build/osx/virtualbox.dmg
+curl -L  https://releases.hashicorp.com/vagrant/2.0.1/vagrant_2.0.1_x86_64.msi -o build/windows/vagrant.msi
+curl -L  https://releases.hashicorp.com/vagrant/2.0.1/vagrant_2.0.1_x86_64.dmg -o build/osx/vagrant.dmg
+curl -L  http://download.virtualbox.org/virtualbox/5.2.2/VirtualBox-5.2.2-119230-Win.exe -o build/windows/virtualbox.exe
+curl -L  http://download.virtualbox.org/virtualbox/5.2.2/VirtualBox-5.2.2-119230-OSX.dmg -o build/osx/virtualbox.dmg
 
 cp resources/linux.txt build/linux/linux.txt
 cp resources/instructions.html build/instructions.html
