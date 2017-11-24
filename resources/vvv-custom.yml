@@ -22,7 +22,7 @@ sites:
   #  hosts:
   #    - my-example-site.test
 
-  # The following commented out site configuration will create a environment useful
+  # The following site configuration will create a environment useful
   # for contributions to the WordPress meta team:
   wordpress-meta-environment:
     description: "An environment useful for contributions to the WordPress meta team."
