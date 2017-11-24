@@ -24,19 +24,18 @@ sites:
 
   # The following commented out site configuration will create a environment useful
   # for contributions to the WordPress meta team:
-  
- wordpress-meta-environment:
-  description: "An environment useful for contributions to the WordPress meta team."
-  repo: https://github.com/WordPress/meta-environment.git
-  hosts:
-    - wp-meta.dev
-  custom:
-    provision_site:
-      "buddypressorg.dev": true
-      "jobs.wordpressnet.dev": true
-      "wordcamp.dev": true
-      "wordpressorg.dev": true
-      "wordpresstv.dev": true
+  wordpress-meta-environment:
+    description: "An environment useful for contributions to the WordPress meta team."
+    repo: https://github.com/WordPress/meta-environment.git
+    hosts:
+      - wp-meta.dev
+    custom:
+      provision_site:
+        "buddypressorg.dev": true
+        "jobs.wordpressnet.dev": true
+        "wordcamp.dev": true
+        "wordpressorg.dev": true
+        "wordpresstv.dev": true
 
 utilities:
   core:
