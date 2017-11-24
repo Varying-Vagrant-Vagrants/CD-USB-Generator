@@ -43,3 +43,4 @@ utilities:
     - opcache-status
     - phpmyadmin
     - webgrind
+    - trusted-hosts
