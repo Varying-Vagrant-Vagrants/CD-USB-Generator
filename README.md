@@ -2,9 +2,9 @@
 
 ## Usage
 
-Clone this repository and run `run.sh`. This will create 2 subfolders:
+Clone this repository and run `./run.sh`. This will create 2 subfolders:
 
- - `tmp` - a temporary location that the script will use to download and create the files it needs
+ - `vvv` - a temporary location that the script will use to download and create the files it needs
  - `build` - this folder will contain the final USB stick files
  
 When the script has finished running without issues, copy the contents of the build folder into the root of your USB drive

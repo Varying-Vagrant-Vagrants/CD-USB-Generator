@@ -10,17 +10,17 @@ else
 	exit 1
 fi
 
-echo "2/18 Cleaning up build and tmp folders"
-rm -rf build tmp
-mkdir -p build tmp
+echo "2/18 Cleaning up build and vvv folders"
+rm -rf build vvv
+mkdir -p build vvv
 
 echo "3/18 Grabbing VVV"
-git clone https://github.com/Varying-Vagrant-Vagrants/VVV.git --branch=master tmp
+git clone https://github.com/Varying-Vagrant-Vagrants/VVV.git --branch=master vvv
 
 echo "4/18 Copying custom VVV config with meta environment"
-cp resources/vvv-custom.yml tmp/vvv-custom.yml
+cp resources/vvv-custom.yml vvv/vvv-custom.yml
 
-cd tmp
+cd vvv
 
 echo "5/18 Installing vagrant hosts updater plugin"
 VVV_SKIP_LOGO=true vagrant plugin install vagrant-hostsupdater
@@ -49,10 +49,10 @@ sed -i '.bak' 's#ubuntu/trusty64#vvv/contribute#' Vagrantfile
 cd ..
 
 echo "13/18 Creating build/vvv.zip"
-zip -r build/vvv.zip tmp
+zip -r build/vvv.zip vvv
 
-echo "14/18 Cleaning up tmp folder"
-rm -rf tmp
+echo "14/18 Cleaning up vvv folder"
+rm -rf vvv
 
 echo "15/18 Creatig installer folders"
 mkdir -p build/windows build/osx build/linux
