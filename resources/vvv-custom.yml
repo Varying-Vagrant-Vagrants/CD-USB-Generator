@@ -76,5 +76,5 @@ utilities:
 # https://www.vagrantup.com/docs/providers/basic_usage.html#vagrant-up
 vm_config:
   memory: 2048
-  cores: 1
+  cores: 2
   # provider: vmware_workstation
