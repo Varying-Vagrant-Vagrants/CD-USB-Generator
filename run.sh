@@ -32,7 +32,7 @@ echo "7/18 Provisioning VVV"
 VVV_SKIP_LOGO=true vagrant up --provision --provider=virtualbox
 
 echo "8/18 Creating DB export"
-VVV_SKIP_LOGO=true vagrant ssh -c db_backup
+VVV_SKIP_LOGO=true vagrant ssh -c "/vagrant/config/homebin/db_backup"
 
 echo "9/18 Prepackaging box"
 VVV_SKIP_LOGO=true vagrant package --output ../build/vvv-contribute.box
