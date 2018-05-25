@@ -11,4 +11,4 @@ Instead, you can download them from the following URLs:
  * Vagrant:
 	https://www.vagrantup.com/downloads.html
 
-While you're waiting for these to download, continue with step 2 in instructions.txt.
+While you're waiting for these to download, continue with step 2 in instructions.html.
