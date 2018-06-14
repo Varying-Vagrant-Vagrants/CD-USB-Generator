@@ -57,6 +57,7 @@ development environment for contributing to WordPress:</p>
 
 <p>More info about <strong>VVV</strong> can be found at <a href="https://varyingvagrantvagrants.org">VaryingVagrantVagrants.org</a>.</p>
 
+<p><strong>Don't forget to hand this USB back! These drives are not swag, they get reused every year and cost the conference money</strong></p>
 
 <h1>Setup Instructions</h1>
 
@@ -78,11 +79,13 @@ development environment for contributing to WordPress:</p>
     </li>
     <li>Extract <code>vvv.zip</code>.</li>
     <li>Now navigate into the vvv directory that was extracted from <code>vvv.zip</code> The contents should include a file named <code>Vagrantfile</code>.</li>
-    <li>Start up Vagrant:
-        <pre>vagrant up --provider virtualbox</pre>
+    <li>Start up Vagrant for the first time:
+        <pre>vagrant up --no-provision --provider virtualbox</pre>
     </li>
     <li>Visit <a href="http://vvv.test/">http://vvv.test</a> in your browser.</li>
 </ol>
+    
+<p>You can now use <code>vagrant halt</code> to turn off the environment, and <code>vagrant up</code> to turn it back on again</p>
 
 <h1>Logging In</h1>
 
