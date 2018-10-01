@@ -19,18 +19,24 @@ else
 fi
 counter=$((counter+1))
 
-echo -e "\033[0;32m${counter}/${total} Cleaning up build and vvv folders\033[0m"
-rm -rf build vvv
-mkdir -p build vvv
-counter=$((counter+1))
+if [ ! -d "vvv" ]; then
+    echo -e "\033[0;32m${counter}/${total} Cleaning up build and vvv folders\033[0m"
+    rm -rf build vvv
+    mkdir -p build vvv
+    counter=$((counter+1))
+fi
 
-echo -e "\033[0;32m${counter}/${total} Grabbing VVV"
-git clone https://github.com/Varying-Vagrant-Vagrants/VVV.git --branch=master vvv
-counter=$((counter+1))
+if [ ! -d "vvv/.git" ]; then
+    echo -e "\033[0;32m${counter}/${total} Grabbing VVV"
+    git clone https://github.com/Varying-Vagrant-Vagrants/VVV.git --branch=master vvv
+    counter=$((counter+1))
+fi
 
-echo -e "\033[0;32m${counter}/${total} Copying custom VVV config with meta environment\033[0m"
-cp resources/vvv-custom.yml vvv/vvv-custom.yml
-counter=$((counter+1))
+if [ ! -f "vvv-custom.yml" ]; then
+    echo -e "\033[0;32m${counter}/${total} Copying custom VVV config with meta environment\033[0m"
+    cp resources/vvv-custom.yml vvv/vvv-custom.yml
+    counter=$((counter+1))
+fi
 
 cd vvv
 
