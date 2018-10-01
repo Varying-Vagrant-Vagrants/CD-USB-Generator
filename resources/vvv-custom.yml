@@ -19,17 +19,24 @@
 sites:
   # The wordpress-default configuration provides an installation of the
   # latest version of WordPress.
-  wordpress-default:
+  wordpress-one:
+    description: "A generic standard WordPress install"
     repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template.git
     hosts:
-      - local.wordpress.test
+      - one.wordpress.test
+
+  wordpress-two:
+    description: "A generic standard WordPress install"
+    repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template.git
+    hosts:
+      - two.wordpress.test
 
   # The wordpress-develop configuration is useful for contributing to WordPress.
   wordpress-develop:
+    decription: "A site for contributing and working with WordPress core"
     repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template-develop.git
     hosts:
-      - src.wordpress-develop.test
-      - build.wordpress-develop.test
+      - wordpress-develop.test
 
   # The following commented out site configuration will create a standard WordPress
   # site in www/example-site/ available at http://my-example-site.dev.
@@ -44,7 +51,7 @@ sites:
   # for contributions to the WordPress meta team:
   
   wordpress-meta-environment:
-    description: "An environment useful for contributions to the WordPress meta team."
+    description: "A collection of sites for contributing to the WordPress meta team."
     repo: https://github.com/WordPress/meta-environment.git
     hosts:
       - wp-meta.test
