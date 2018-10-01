@@ -60,13 +60,15 @@ echo -e "\033[0;32m${counter}/${total} Prepackaging box\033[0m"
 VVV_SKIP_LOGO=true vagrant package --output ../build/vvv-contribute.box
 counter=$((counter+1))
 
-echo -e "\033[0;32m${counter}/${total} Destroying temporary VM\033[0m"
-VVV_SKIP_LOGO=true vagrant destroy --force
-counter=$((counter+1))
+if [ ! -f "../build/vvv-contribute.box" ]; then
+    echo -e "\033[0;32m${counter}/${total} Destroying temporary VM\033[0m"
+    VVV_SKIP_LOGO=true vagrant destroy --force
+    counter=$((counter+1))
 
-echo -e "\033[0;32m${counter}/${total} Cleaning up after Vagrant\033[0m"
-rm -rf .vagrant
-counter=$((counter+1))
+    echo -e "\033[0;32m${counter}/${total} Cleaning up after Vagrant\033[0m"
+    rm -rf .vagrant
+    counter=$((counter+1))
+fi
 
 echo -e "\033[0;32m${counter}/${total} Modifying vagrant file box\033[0m"
 sed -i '.bak' 's#ubuntu/trusty64#vvv/contribute#' Vagrantfile
@@ -74,37 +76,59 @@ counter=$((counter+1))
 
 cd ..
 
-echo -e "\033[0;32m${counter}/${total} Creating build/vvv.zip\033[0m"
-zip -r build/vvv.zip vvv
-counter=$((counter+1))
+if [ ! -f "build/vvv.zip" ]; then
+    echo -e "\033[0;32m${counter}/${total} Creating build/vvv.zip\033[0m"
+    zip -r build/vvv.zip vvv
+    counter=$((counter+1))
 
-echo -e "\033[0;32m${counter}/${total} Cleaning up vvv folder\033[0m"
-rm -rf vvv
-counter=$((counter+1))
+    echo -e "\033[0;32m${counter}/${total} Cleaning up vvv folder\033[0m"
+    rm -rf vvv
+    counter=$((counter+1))
+fi
 
-echo -e "\033[0;32m${counter}/${total} Creating installer folders\033[0m"
-mkdir -p build/windows build/osx build/linux
-counter=$((counter+1))
+if [ ! -d "build/windows" ]; then
+    echo -e "\033[0;32m${counter}/${total} Creating installer folders\033[0m"
+    mkdir -p build/windows build/osx build/linux
+    counter=$((counter+1))
+fi
 
 echo -e "\033[0;32m${counter}/${total} Downloading installers\033[0m"
-curl -L  https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.5_x86_64.msi -o build/windows/vagrant.msi
-curl -L  https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.5_x86_64.dmg -o build/osx/vagrant.dmg
-curl -L  https://download.virtualbox.org/virtualbox/5.2.12/VirtualBox-5.2.18-122591-Win.exe -o build/windows/virtualbox.exe
-curl -L  https://download.virtualbox.org/virtualbox/5.2.12/VirtualBox-5.2.18-122591-OSX.dmg -o build/osx/virtualbox.dmg
-curl -L  https://github.com/git-for-windows/git/releases/download/v2.17.0.windows.1/Git-2.19.0-64-bit.exe -o build/windows/git.exe
+if [ ! -f "build/windows/vagrant.msi" ]; then
+    curl -L  https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.5_x86_64.msi -o build/windows/vagrant.msi
+fi
+
+if [ ! -f "build/osx/vagrant.dmg" ]; then
+    curl -L  https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.5_x86_64.dmg -o build/osx/vagrant.dmg
+fi
+
+if [ ! -f "build/windows/virtualbox.exe" ]; then
+    curl -L  https://download.virtualbox.org/virtualbox/5.2.12/VirtualBox-5.2.18-122591-Win.exe -o build/windows/virtualbox.exe
+fi
+
+if [ ! -f "build/osx/virtualbox.dmg" ]; then
+    curl -L  https://download.virtualbox.org/virtualbox/5.2.12/VirtualBox-5.2.18-122591-OSX.dmg -o build/osx/virtualbox.dmg
+fi
+
+if [ ! -f "build/windows/git.exe" ]; then
+    curl -L  https://github.com/git-for-windows/git/releases/download/v2.17.0.windows.1/Git-2.19.0-64-bit.exe -o build/windows/git.exe
+fi
 counter=$((counter+1))
 
-echo -e "\033[0;32m${counter}/${total} Acquiring a local copy of the Vagrant Hosts Updater plugin\033[0m"
-gem fetch vagrant-hostsupdater
-counter=$((counter+1))
+if [ ! -f "build/vagrant-hostsupdater.gem" ]; then
+    echo -e "\033[0;32m${counter}/${total} Acquiring a local copy of the Vagrant Hosts Updater plugin\033[0m"
+    gem fetch vagrant-hostsupdater
+    counter=$((counter+1))
 
-echo -e "\033[0;32m${counter}/${total} Renaming gem file to remove the version number\033[0m"
-mv build/vagrant-hostsupdater-*.gem build/vagrant-hostsupdater.gem
-counter=$((counter+1))
+    echo -e "\033[0;32m${counter}/${total} Renaming gem file to remove the version number\033[0m"
+    mv build/vagrant-hostsupdater-*.gem build/vagrant-hostsupdater.gem
+    counter=$((counter+1))
+fi
 
-echo -e "\033[0;32m${counter}/${total} Copying instructions\033[0m"
-cp resources/linux.txt build/linux/linux.txt
-cp resources/instructions.html build/instructions.html
-counter=$((counter+1))
+if [ ! -f "build/linux/linux.txt" ]; then
+    echo -e "\033[0;32m${counter}/${total} Copying instructions\033[0m"
+    cp resources/linux.txt build/linux/linux.txt
+    cp resources/instructions.html build/instructions.html
+    counter=$((counter+1))
+fi
 
 echo -e "\033[0;32m${total}/${total} Congrats, copy the contents of the build folder on to your USB drives and distribute!\033[0m"
