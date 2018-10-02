@@ -62,15 +62,13 @@ echo -e "\033[0;32m${counter}/${total} Prepackaging box\033[0m"
 VVV_SKIP_LOGO=true vagrant package --output ../build/vvv-contribute.box
 counter=$((counter+1))
 
-if [ ! -f "../build/vvv-contribute.box" ]; then
-    echo -e "\033[0;32m${counter}/${total} Destroying temporary VM\033[0m"
-    VVV_SKIP_LOGO=true vagrant destroy --force
-    counter=$((counter+1))
+echo -e "\033[0;32m${counter}/${total} Destroying temporary VM\033[0m"
+VVV_SKIP_LOGO=true vagrant destroy --force
+counter=$((counter+1))
 
-    echo -e "\033[0;32m${counter}/${total} Cleaning up after Vagrant\033[0m"
-    rm -rf .vagrant
-    counter=$((counter+1))
-fi
+echo -e "\033[0;32m${counter}/${total} Cleaning up after Vagrant\033[0m"
+rm -rf .vagrant
+counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Modifying vagrant file box\033[0m"
 sed -i '.bak' 's#ubuntu/trusty64#vvv/contribute#' Vagrantfile
