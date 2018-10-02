@@ -6,6 +6,7 @@ echo -e "\033[0;32mHello! This script will generate a build folder containing a 
 echo -e "\033[0;32mOnce this script finishes succesfully, you can copy the contents of the build folder on to USB drives!\033[0m"
 echo ""
 echo -e "\033[0;33mPrior warning, this script takes a while to run, don't be surprised if it's 1 hour+\033[0m"
+echo -e "\033[0;33mAlso, do not run this on a USB drive. Run it on an SSD then copy the final result\033[0m"
 echo ""
 
 total=21
