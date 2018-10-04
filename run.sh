@@ -2,12 +2,32 @@
 
 set -e
 
+not_suggested_path=(
+    '/volumes/'
+    '/mnt/'
+    '/media/'
+)
+proceed=true
+current_directory=`pwd`
+
 echo -e "\033[0;32mHello! This script will generate a build folder containing a copy of VVV with instructions and installers.\033[0m"
 echo -e "\033[0;32mOnce this script finishes succesfully, you can copy the contents of the build folder on to USB drives!\033[0m"
 echo ""
 echo -e "\033[0;33mPrior warning, this script takes a while to run, don't be surprised if it's 1 hour+\033[0m"
-echo -e "\033[0;33mAlso, do not run this on a USB drive. Run it on an SSD then copy the final result\033[0m"
+for path in "${not_suggested_path[@]}" ; do
+    if [[ $current_directory = *$path* ]]; then
+        read -p "You are trying run this on a USB drive (slowness and issue on executing the script). Do you want to proceed?" -n 1 -r
+        proceed=false
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            proceed=true
+        fi
+    fi
+done
 echo ""
+
+if [[ ! $proceed ]]; then
+    exit
+fi
 
 total=21
 counter=1
