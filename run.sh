@@ -64,7 +64,7 @@ rm -rf .vagrant
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Modifying vagrant file box\033[0m"
-sed -i '.bak' 's#ubuntu/trusty64#vvv/contribute#' Vagrantfile
+sed -i'.bak' 's#ubuntu/trusty64#vvv/contribute#' Vagrantfile
 counter=$((counter+1))
 
 cd ..
