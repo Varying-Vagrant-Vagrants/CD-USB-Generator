@@ -94,7 +94,7 @@ gem fetch vagrant-hostsupdater
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Renaming gem file to remove the version number\033[0m"
-mv build/vagrant-hostsupdater-*.gem build/vagrant-hostsupdater.gem
+mv vagrant-hostsupdater-*.gem build/vagrant-hostsupdater.gem
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Copying instructions\033[0m"
