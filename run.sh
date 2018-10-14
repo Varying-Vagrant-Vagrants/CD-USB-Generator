@@ -16,7 +16,7 @@ echo ""
 echo -e "\033[0;33mPrior warning, this script takes a while to run, don't be surprised if it's 1 hour+\033[0m"
 for path in "${not_suggested_path[@]}" ; do
     if [[ $current_directory = *$path* ]]; then
-        read -p "You are trying run this on a USB drive (slowness and issue on executing the script). Do you want to proceed?" -n 1 -r
+        read -p "You are trying run this on a USB drive, it is better for performance and avoid errors to run on HDD/SSD drive. Do you want to proceed anyway?" -n 1 -r
         proceed=false
         if [[ $REPLY =~ ^[Yy]$ ]]; then
             proceed=true
