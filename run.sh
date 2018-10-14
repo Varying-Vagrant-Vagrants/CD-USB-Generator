@@ -6,6 +6,7 @@ echo -e "\033[0;32mHello! This script will generate a build folder containing a 
 echo -e "\033[0;32mOnce this script finishes succesfully, you can copy the contents of the build folder on to USB drives!\033[0m"
 echo ""
 echo -e "\033[0;33mPrior warning, this script takes a while to run, don't be surprised if it's 1 hour+\033[0m"
+echo -e "\033[0;33mAlso, do not run this on a USB drive. Run it on an SSD then copy the final result\033[0m"
 echo ""
 
 total=21
@@ -71,7 +72,7 @@ rm -rf .vagrant
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Modifying vagrant file box\033[0m"
-sed -i '.bak' 's#ubuntu/trusty64#vvv/contribute#' Vagrantfile
+sed -i'.bak' 's#ubuntu/trusty64#vvv/contribute#' Vagrantfile
 counter=$((counter+1))
 
 cd ..
@@ -93,16 +94,17 @@ if [ ! -d "build/windows" ]; then
 fi
 
 echo -e "\033[0;32m${counter}/${total} Downloading installers\033[0m"
+
 if [ ! -f "build/windows/vagrant.msi" ]; then
-    curl -L  https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.5_x86_64.msi -o build/windows/vagrant.msi
+    curl -L  https://releases.hashicorp.com/vagrant/2.1.5/vagrant_2.1.5_x86_64.msi -o build/windows/vagrant.msi
 fi
 
 if [ ! -f "build/osx/vagrant.dmg" ]; then
-    curl -L  https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.5_x86_64.dmg -o build/osx/vagrant.dmg
+    curl -L  https://releases.hashicorp.com/vagrant/2.1.5/vagrant_2.1.5_x86_64.dmg -o build/osx/vagrant.dmg
 fi
 
 if [ ! -f "build/windows/virtualbox.exe" ]; then
-    curl -L  https://download.virtualbox.org/virtualbox/5.2.12/VirtualBox-5.2.18-122591-Win.exe -o build/windows/virtualbox.exe
+    curl -L  https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-122591-Win.exe -o build/windows/virtualbox.exe
 fi
 
 if [ ! -f "build/osx/virtualbox.dmg" ]; then
@@ -110,7 +112,7 @@ if [ ! -f "build/osx/virtualbox.dmg" ]; then
 fi
 
 if [ ! -f "build/windows/git.exe" ]; then
-    curl -L  https://github.com/git-for-windows/git/releases/download/v2.17.0.windows.1/Git-2.19.0-64-bit.exe -o build/windows/git.exe
+    curl -L  https://github.com/git-for-windows/git/releases/download/v2.19.0.windows.1/Git-2.19.0-64-bit.exe -o build/windows/git.exe
 fi
 counter=$((counter+1))
 
@@ -120,7 +122,7 @@ if [ ! -f "build/vagrant-hostsupdater.gem" ]; then
     counter=$((counter+1))
 
     echo -e "\033[0;32m${counter}/${total} Renaming gem file to remove the version number\033[0m"
-    mv build/vagrant-hostsupdater-*.gem build/vagrant-hostsupdater.gem
+    mv vagrant-hostsupdater-*.gem build/vagrant-hostsupdater.gem
     counter=$((counter+1))
 fi
 
