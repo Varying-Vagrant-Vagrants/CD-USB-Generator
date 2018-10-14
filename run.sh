@@ -82,11 +82,11 @@ mkdir -p build/windows build/osx build/linux
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Downloading installers\033[0m"
-curl -L  https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.5_x86_64.msi -o build/windows/vagrant.msi
-curl -L  https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.5_x86_64.dmg -o build/osx/vagrant.dmg
-curl -L  https://download.virtualbox.org/virtualbox/5.2.12/VirtualBox-5.2.18-122591-Win.exe -o build/windows/virtualbox.exe
-curl -L  https://download.virtualbox.org/virtualbox/5.2.12/VirtualBox-5.2.18-122591-OSX.dmg -o build/osx/virtualbox.dmg
-curl -L  https://github.com/git-for-windows/git/releases/download/v2.17.0.windows.1/Git-2.19.0-64-bit.exe -o build/windows/git.exe
+curl -L  https://releases.hashicorp.com/vagrant/2.1.5/vagrant_2.1.5_x86_64.msi -o build/windows/vagrant.msi
+curl -L  https://releases.hashicorp.com/vagrant/2.1.5/vagrant_2.1.5_x86_64.dmg -o build/osx/vagrant.dmg
+curl -L  https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-122591-Win.exe -o build/windows/virtualbox.exe
+curl -L  https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-122591-OSX.dmg -o build/osx/virtualbox.dmg
+curl -L  https://github.com/git-for-windows/git/releases/download/v2.19.0.windows.1/Git-2.19.0-64-bit.exe -o build/windows/git.exe
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Acquiring a local copy of the Vagrant Hosts Updater plugin\033[0m"
