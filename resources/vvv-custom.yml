@@ -36,7 +36,7 @@ sites:
     decription: "A site for contributing and working with WordPress core"
     repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template-develop.git
     hosts:
-      - wordpress-develop.test
+      - trunk.wordpress.test
 
   # The following commented out site configuration will create a standard WordPress
   # site in www/example-site/ available at http://my-example-site.dev.
@@ -85,3 +85,7 @@ vm_config:
   memory: 2048
   cores: 2
   # provider: vmware_workstation
+
+general:
+  db_backup: false
+  db_restore: false
