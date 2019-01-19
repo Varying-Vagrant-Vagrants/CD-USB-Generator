@@ -127,9 +127,10 @@ echo -e "\033[0;32m${counter}/${total} Copying installers\033[0m"
 mkdir -p build/windows build/osx
 cp installers/windows/vagrant.2.2.1.msi build/windows/
 cp installers/windows/virtualbox.5.2.22.exe build/windows/
+cp installers/windows/git.2.19.exe build/windows/
+
 cp installers/osx/vagrant.2.2.1.dmg build/osx/
 cp installers/osx/virtualbox.5.2.22.dmg build/osx/
-cp installers/windows/git.2.19.exe build/osx/
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Acquiring a local copy of the Vagrant Hosts Updater plugin\033[0m"
