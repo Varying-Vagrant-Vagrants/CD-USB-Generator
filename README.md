@@ -16,7 +16,7 @@ The script will take a while run, and will:
  - Checkout and provision a copy of VVV
  - Package a pre-built VVV box
  - Zip up the VVV install
- - Download and place copies of the `git` `vagrant` and `virtualbox` installers for Win32/Win64/MacOS in subfolders
+ - Download and place copies of the `git` `vagrant` and `virtualbox` installers Windows/Mac in subfolders
  
  ## License
  
