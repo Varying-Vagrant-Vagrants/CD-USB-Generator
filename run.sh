@@ -29,7 +29,7 @@ if [[ ! $proceed ]]; then
     exit
 fi
 
-total=21
+total=22
 counter=1
 if [ -d "resources" ]; then
 	echo -e "\033[0;32m${counter}/${total} Resource folder found\033[0m"
@@ -42,7 +42,7 @@ counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Cleaning up build and vvv folders\033[0m"
 rm -rf build vvv
-mkdir -p build vvv
+mkdir -p build vvv installers
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Grabbing VVV"
@@ -102,11 +102,34 @@ mkdir -p build/windows build/osx build/linux
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Downloading installers\033[0m"
-curl -L  https://releases.hashicorp.com/vagrant/2.2.1/vagrant_2.2.1_i686.msi -o build/windows/vagrant.msi
-curl -L  https://releases.hashicorp.com/vagrant/2.2.1/vagrant_2.2.1_x86_64.dmg -o build/osx/vagrant.dmg
-curl -L  https://download.virtualbox.org/virtualbox/5.2.22/VirtualBox-5.2.22-126460-Win.exe -o build/windows/virtualbox.exe
-curl -L  https://download.virtualbox.org/virtualbox/5.2.22/VirtualBox-5.2.22-126460-OSX.dmg -o build/osx/virtualbox.dmg
-curl -L  https://github.com/git-for-windows/git/releases/download/v2.19.0.windows.1/Git-2.19.0-64-bit.exe -o build/windows/git.exe
+
+mkdir -p installers/windows installers/osx
+
+if [ ! -f installers/windows/vagrant.2.2.1.msi ]; then
+	curl -L --silent https://releases.hashicorp.com/vagrant/2.2.1/vagrant_2.2.1_i686.msi -o installers/windows/vagrant.2.2.1.msi &
+fi
+if [ ! -f installers/osx/vagrant.2.2.1.dmg ]; then
+	curl -L --silent https://releases.hashicorp.com/vagrant/2.2.1/vagrant_2.2.1_x86_64.dmg -o installers/osx/vagrant.2.2.1.dmg &
+fi
+if [ ! -f installers/windows/virtualbox.5.2.22.exe ]; then
+	curl -L --silent https://download.virtualbox.org/virtualbox/5.2.22/VirtualBox-5.2.22-126460-Win.exe -o installers/windows/virtualbox.5.2.22.exe &
+fi
+if [ ! -f installers/osx/virtualbox.5.2.22.dmg ]; then
+	curl -L --silent https://download.virtualbox.org/virtualbox/5.2.22/VirtualBox-5.2.22-126460-OSX.dmg -o installers/osx/virtualbox.5.2.22.dmg &
+fi
+if [ ! -f installers/windows/git.2.19.exe ]; then
+	curl -L --silent https://github.com/git-for-windows/git/releases/download/v2.19.0.windows.1/Git-2.19.0-64-bit.exe -o installers/windows/git.2.19.exe &
+fi
+wait
+counter=$((counter+1))
+
+echo -e "\033[0;32m${counter}/${total} Copying installers\033[0m"
+mkdir -p build/windows build/osx
+cp installers/windows/vagrant.2.2.1.msi build/windows/
+cp installers/windows/virtualbox.5.2.22.exe build/windows/
+cp installers/osx/vagrant.2.2.1.dmg build/osx/
+cp installers/osx/virtualbox.5.2.22.dmg build/osx/
+cp installers/windows/git.2.19.exe build/osx/
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Acquiring a local copy of the Vagrant Hosts Updater plugin\033[0m"
