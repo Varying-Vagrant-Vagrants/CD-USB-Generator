@@ -69,8 +69,18 @@ development environment for contributing to WordPress:</p>
     <li>Copy <code>vvv.zip</code>, <code>vagrant-hostsupdater.gem</code> and <code>vvv-contribute.box</code> from the USB drive onto your computer.</li>
     <li>Copy this instructions file onto your computer so you can refer to it after passing the USB drive to someone else.</li>
     <li>Pass the USB drive on to anyone else who needs it.</li>
-    <li>Install Virtualbox and Vagrant using the installers in the <code>windows</code> or <code>mac</code> directory.</li>
-    <li>Open a command line terminal and navigate into the directory where you copied the files.</li>
+</ol>
+
+<ol>
+    <li>Install Virtualbox using the installer in the <code>windows</code> or <code>mac</code> directory.
+        <ul><li>If this fails on a Mac, go to system preferences, and open "Security and Privacy" </li>
+            <li>You should see a prompt near the bottom of the window saying software from Oracle America Inc was blocked. You want to allow this.</li>
+            <li>Once it has been allowed, re-run the VirtualBox installer, and all should be good</li>
+            <li><a href="https://blogs.oracle.com/scoter/getting-oracle-vm-virtualbox-correctly-installed-on-macos-1014-mojave">See here for more info about this</a></li>
+        </ul>
+    </li>
+    <li>Install Vagrant using the installer in the <code>windows</code> or <code>mac</code> directory.</li>
+    <li>Open a command line/terminal and navigate into the directory where you copied the files.</li>
     <li>Add the VVV box to Vagrant:
         <pre>vagrant box add vvv/contribute vvv-contribute.box</pre>
     </li>
