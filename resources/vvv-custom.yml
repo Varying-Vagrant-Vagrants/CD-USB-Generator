@@ -84,6 +84,7 @@ utilities:
 vm_config:
   memory: 2048
   cores: 2
+  wordcamp_contributor_day_box: true
   # provider: vmware_workstation
 
 general:

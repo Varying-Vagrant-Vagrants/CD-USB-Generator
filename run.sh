@@ -29,7 +29,7 @@ if [[ ! $proceed ]]; then
     exit
 fi
 
-total=22
+total=21
 counter=1
 if [ -d "resources" ]; then
 	echo -e "\033[0;32m${counter}/${total} Resource folder found\033[0m"
@@ -69,10 +69,6 @@ counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Creating DB export\033[0m"
 VVV_SKIP_LOGO=true vagrant ssh -c "/vagrant/config/homebin/db_backup"
-counter=$((counter+1))
-
-echo -e "\033[0;32m${counter}/${total} Prepackaging box\033[0m"
-VVV_SKIP_LOGO=true vagrant package --output ../build/vvv-contribute.box
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Destroying temporary VM\033[0m"
