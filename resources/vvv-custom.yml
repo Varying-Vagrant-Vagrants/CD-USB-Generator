@@ -1,9 +1,5 @@
 ---
 
-# IMPORTANT !!!!!!!!!
-# Copy this file to vvv-custom.yml so your changes don't get overwritten when you update
-
-
 # This file is a YAML formatted file. YAML indenting is done in spaces not
 # tabs, and whitespace is significant. If you don't stick to this, it will
 # fail on provision
@@ -82,7 +78,7 @@ vm_config:
   # If you have 4GB of RAM, lower this to 768MB or you may encounter issues
   memory: 2048
 
-# CPU cores:
+  # CPU cores:
   cores: 2
 
   # this tells VVV to use the prebuilt box copied from the USB drive at contributor days
