@@ -61,7 +61,7 @@ development environment for contributing to WordPress:</p>
 
 <h1>Setup Instructions</h1>
 
-<p><strong>Important:</strong> Windows users should run the command line commands using administrator rights. This can be done by right-clicking <code>cmd.exe</code> and selecting "Run as administrator".</p>
+<h2>Grabbing Everything off the USB Drive</h2>
 
 <ol>
     <li>Create a directory on your computer to copy files into.</li>
@@ -70,6 +70,8 @@ development environment for contributing to WordPress:</p>
     <li>Copy this instructions file onto your computer so you can refer to it after passing the USB drive to someone else.</li>
     <li>Pass the USB drive on to anyone else who needs it.</li>
 </ol>
+
+<h2>Installing Needed Software</h2>
 
 <ol>
     <li>Install Virtualbox using the installer in the <code>windows</code> or <code>mac</code> directory.
@@ -80,6 +82,13 @@ development environment for contributing to WordPress:</p>
         </ul>
     </li>
     <li>Install Vagrant using the installer in the <code>windows</code> or <code>mac</code> directory.</li>
+</ol>
+
+<h2>Setting up the Local Dev Environment</h2>
+
+<p><strong>Important:</strong> Windows users should run the command line commands using administrator rights. This can be done by right-clicking <code>cmd.exe</code> and selecting "Run as administrator".</p>
+
+<ol>
     <li>Open a command line/terminal and navigate into the directory where you copied the files.</li>
     <li>Add the VVV box to Vagrant:
         <pre>vagrant box add vvv/contribute vvv-contribute.box</pre>
@@ -101,10 +110,10 @@ development environment for contributing to WordPress:</p>
 
 <p>This pre-provisioned copy of VVV comes with different instances of WordPress.</p>
 
-<p>2 standard installs of WordPress are available at http://one.wordpress.test and http://two.wordpress.test</p>
+<p>2 standard installs of WordPress are available at <a href="http://one.wordpress.test">http://one.wordpress.test</a> and <a href="http://trunk.wordpress.test">http://two.wordpress.test</a></p>
 <p>For contributing to WordPress Core, you'll use <a href="http://trunk.wordpress.test">http://trunk.wordpress.test</a>.</p>
 
-<p>For contributing to WordPress Meta, you'll have development versions of each of the Meta sites listed <a href="https://github.com/WordPress/meta-environment#available-sites">here</a>.</p>
+<p>For contributing to WordPress Meta, WordCamps, etc visit <a href="http://wpmeta.test">http://wpmeta.test</a> you'll have development versions of each of the Meta sites listed <a href="https://github.com/WordPress/meta-environment#available-sites">here</a>.</p>
 
 <p>For all of the WordPress instances, the wp-admin credentials are as follows:</p>
 
