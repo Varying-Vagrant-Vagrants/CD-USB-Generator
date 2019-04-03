@@ -29,7 +29,7 @@ if [[ ! $proceed ]]; then
     exit
 fi
 
-total=23
+total=22
 counter=1
 if [ -d "resources" ]; then
     echo -e "\033[0;32m${counter}/${total} Resource folder found\033[0m"
@@ -80,15 +80,11 @@ VVV_SKIP_LOGO=true vagrant destroy --force
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Copying final vvv-custom.yml\033[0m"
-cp resources/vvv-custom.yml vvv/vvv-custom.yml
+cp -f ../resources/vvv-custom.yml vvv-custom.yml
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Cleaning up after Vagrant\033[0m"
 rm -rf .vagrant
-counter=$((counter+1))
-
-echo -e "\033[0;32m${counter}/${total} Modifying vagrant file box\033[0m"
-sed -i'.bak' 's#ubuntu/trusty64#vvv/contribute#' Vagrantfile
 counter=$((counter+1))
 
 cd ..
@@ -129,12 +125,12 @@ counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Copying installers\033[0m"
 mkdir -p build/windows build/mac
-cp installers/windows/vagrant.2.2.4.msi build/windows/
-cp installers/windows/virtualbox.5.2.26.exe build/windows/
-cp installers/windows/git.2.21.exe build/windows/
+cp -f installers/windows/vagrant.2.2.4.msi build/windows/
+cp -f installers/windows/virtualbox.5.2.26.exe build/windows/
+cp -f installers/windows/git.2.21.exe build/windows/
 
-cp installers/mac/vagrant.2.2.4.dmg build/mac/
-cp installers/mac/virtualbox.6.0.4.dmg build/mac/
+cp -f installers/mac/vagrant.2.2.4.dmg build/mac/
+cp -f installers/mac/virtualbox.6.0.4.dmg build/mac/
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Acquiring a local copy of the Vagrant Hosts Updater plugin\033[0m"
