@@ -20,4 +20,4 @@ The script will take a while run, and will:
  
  ## License
  
- GPL!!
+ GPL 2!!
