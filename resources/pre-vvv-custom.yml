@@ -1,0 +1,91 @@
+---
+
+# This file is a YAML formatted file. YAML indenting is done in spaces not
+# tabs, and whitespace is significant. If you don't stick to this, it will
+# fail on provision
+
+#
+# IMPORTANT, if you change this file, you have to reprovision,  no exceptions
+# vagrant reload --provision
+#
+
+# These are your websites, and their names map on to the folders they're
+# located in. See the docs for how to define these, and what all the keys
+# and options are
+sites:
+  # The wordpress-default configuration provides an installation of the
+  # latest version of WordPress.
+  wordpress-one:
+    description: "A generic standard WordPress install"
+    repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template.git
+    hosts:
+      - one.wordpress.test
+
+  wordpress-two:
+    description: "A generic standard WordPress install"
+    repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template.git
+    hosts:
+      - two.wordpress.test
+
+  # The wordpress-develop configuration is useful for contributing to WordPress.
+  wordpress-develop:
+    decription: "A site for contributing and working with WordPress core"
+    repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template-develop.git
+    hosts:
+      - trunk.wordpress.test
+
+  # The following commented out site configuration will create a standard WordPress
+  # site in www/example-site/ available at http://my-example-site.dev.
+  # Remember, whitespace is significant! Tabs and spaces mean different things
+
+  #example-site:
+  #  repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template.git
+  #  hosts:
+  #    - my-example-site.test
+
+  # The following commented out site configuration will create a environment useful
+  # for contributions to the WordPress meta team:
+  
+  wordpress-meta-environment:
+    description: "A collection of sites for contributing to the WordPress meta team."
+    repo: https://github.com/WordPress/meta-environment.git
+    hosts:
+      - wp-meta.test
+    custom:
+      provision_site:
+        "buddypressorg.test": true
+        "jobs.wordpressnet.test": true
+        "wordcamp.test": true
+        "wordpressorg.test": true
+        "wordpresstv.test": true
+
+# Utilities are system level items rather than sites, that install tools or packages
+# the core utilities install tools such as phpmyadmin
+utilities:
+  core:
+    - memcached-admin
+    - opcache-status
+    - phpmyadmin
+    - webgrind
+    - trusted-hosts
+    - tls-ca
+
+# vm_config controls how Vagrant provisions the virtual machine, and can be used to
+# increase the memory given to VVV and the number of CPU cores. 
+# It can also be used to override the default provider being used within Vagrant.
+vm_config:
+  # For WP core development we recommend at least 2GB ( 2048 ),
+  # If you have 4GB of RAM, lower this to 768MB or you may encounter issues
+  memory: 2048
+
+  # CPU cores:
+  cores: 2
+
+  # this tells VVV to use the prebuilt box copied from the USB drive at contributor days
+  # once set to false, do not change back to true, and reprovision
+  wordcamp_contributor_day_box: false
+  provider: virtualbox
+
+general:
+  db_backup: false
+  db_restore: false

@@ -29,7 +29,7 @@ if [[ ! $proceed ]]; then
     exit
 fi
 
-total=21
+total=22
 counter=1
 if [ -d "resources" ]; then
     echo -e "\033[0;32m${counter}/${total} Resource folder found\033[0m"
@@ -49,17 +49,17 @@ echo -e "\033[0;32m${counter}/${total} Grabbing VVV"
 git clone https://github.com/Varying-Vagrant-Vagrants/VVV.git --branch=master vvv
 counter=$((counter+1))
 
-echo -e "\033[0;32m${counter}/${total} Copying custom VVV config with meta environment\033[0m"
-cp resources/vvv-custom.yml vvv/vvv-custom.yml
+echo -e "\033[0;32m${counter}/${total} Copying custom initial setup VVV config with meta environment\033[0m"
+cp resources/pre-vvv-custom.yml vvv/vvv-custom.yml
 counter=$((counter+1))
 
 cd vvv
 
 echo -e "\033[0;32m${counter}/${total} Installing the vagrant hosts updater plugin\033[0m"
-VVV_SKIP_LOGO=true vagrant plugin install vagrant-hostsupdater
+VVV_SKIP_LOGO=true vagrant plugin install --local
 counter=$((counter+1))
 
-echo -e "\033[0;32m${counter}/${total} Updating box\033[0m"
+echo -e "\033[0;32m${counter}/${total} Updating base box\033[0m"
 VVV_SKIP_LOGO=true vagrant box update
 counter=$((counter+1))
 
@@ -73,6 +73,10 @@ counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Destroying temporary VM\033[0m"
 VVV_SKIP_LOGO=true vagrant destroy --force
+counter=$((counter+1))
+
+echo -e "\033[0;32m${counter}/${total} Copying final vvv-custom.yml\033[0m"
+cp resources/vvv-custom.yml vvv/vvv-custom.yml
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Cleaning up after Vagrant\033[0m"
