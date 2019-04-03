@@ -32,11 +32,11 @@ fi
 total=21
 counter=1
 if [ -d "resources" ]; then
-	echo -e "\033[0;32m${counter}/${total} Resource folder found\033[0m"
+    echo -e "\033[0;32m${counter}/${total} Resource folder found\033[0m"
 else
-	echo -e "\033[0;31mERROR: Resources folder not found, are you running this script in the correct folder?"
-	echo -e "       Navigate to the folder run.sh is located in and run ./run.sh\033[0m"
-	exit 1
+    echo -e "\033[0;31mERROR: Resources folder not found, are you running this script in the correct folder?"
+    echo -e "       Navigate to the folder run.sh is located in and run ./run.sh\033[0m"
+    exit 1
 fi
 counter=$((counter+1))
 
@@ -102,19 +102,19 @@ echo -e "\033[0;32m${counter}/${total} Downloading installers\033[0m"
 mkdir -p installers/windows installers/mac
 
 if [ ! -f installers/windows/vagrant.2.2.4.msi ]; then
-	curl -L --silent https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.msi -o installers/windows/vagrant.2.2.4.msi &
+    curl -L --silent https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.msi -o installers/windows/vagrant.2.2.4.msi &
 fi
 if [ ! -f installers/mac/vagrant.2.2.4.dmg ]; then
-	curl -L --silent https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.dmg -o installers/mac/vagrant.2.2.4.dmg &
+    curl -L --silent https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.dmg -o installers/mac/vagrant.2.2.4.dmg &
 fi
-if [ ! -f installers/windows/virtualbox.6.0.4.exe ]; then
-	curl -L --silent https://download.virtualbox.org/virtualbox/6.0.4/VirtualBox-6.0.4-128413-Win.exe -o installers/windows/virtualbox.6.0.4.exe &
+if [ ! -f installers/windows/virtualbox.5.2.26.exe ]; then
+    curl -L --silent https://download.virtualbox.org/virtualbox/5.2.26/VirtualBox-5.2.26-128414-Win.exe -o installers/windows/virtualbox.5.2.26.exe &
 fi
 if [ ! -f installers/mac/virtualbox.6.0.4.dmg ]; then
-	curl -L --silent https://download.virtualbox.org/virtualbox/6.0.4/VirtualBox-6.0.4-128413-OSX.dmg -o installers/mac/virtualbox.6.0.4.dmg &
+    curl -L --silent https://download.virtualbox.org/virtualbox/6.0.4/VirtualBox-6.0.4-128413-OSX.dmg -o installers/mac/virtualbox.6.0.4.dmg &
 fi
 if [ ! -f installers/windows/git.2.21.exe ]; then
-	curl -L --silent https://github.com/git-for-windows/git/releases/download/v2.21.0.windows.1/Git-2.21.0-64-bit.exe -o installers/windows/git.2.21.exe &
+    curl -L --silent https://github.com/git-for-windows/git/releases/download/v2.21.0.windows.1/Git-2.21.0-64-bit.exe -o installers/windows/git.2.21.exe &
 fi
 wait
 counter=$((counter+1))
@@ -122,7 +122,7 @@ counter=$((counter+1))
 echo -e "\033[0;32m${counter}/${total} Copying installers\033[0m"
 mkdir -p build/windows build/mac
 cp installers/windows/vagrant.2.2.4.msi build/windows/
-cp installers/windows/virtualbox.6.0.4.exe build/windows/
+cp installers/windows/virtualbox.5.2.26.exe build/windows/
 cp installers/windows/git.2.21.exe build/windows/
 
 cp installers/mac/vagrant.2.2.4.dmg build/mac/
