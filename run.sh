@@ -46,7 +46,7 @@ mkdir -p build vvv installers
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Grabbing VVV"
-git clone https://github.com/Varying-Vagrant-Vagrants/VVV.git --branch=master vvv
+git clone https://github.com/Varying-Vagrant-Vagrants/VVV.git --branch=develop vvv
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Copying custom initial setup VVV config with meta environment\033[0m"
