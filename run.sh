@@ -68,7 +68,7 @@ VVV_SKIP_LOGO=true vagrant up --provision --provider=virtualbox
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Creating DB export\033[0m"
-VVV_SKIP_LOGO=true vagrant ssh -c "/vagrant/config/homebin/db_backup"
+VVV_SKIP_LOGO=true vagrant ssh -c "db_backup"
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Prepackaging box\033[0m"
