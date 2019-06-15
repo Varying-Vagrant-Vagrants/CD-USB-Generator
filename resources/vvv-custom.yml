@@ -89,3 +89,4 @@ vm_config:
 general:
   db_backup: false
   db_restore: false
+  db_share_type: false
