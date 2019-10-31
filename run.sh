@@ -50,7 +50,7 @@ git clone https://github.com/Varying-Vagrant-Vagrants/VVV.git --branch=develop v
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Copying custom initial setup VVV config with meta environment\033[0m"
-cp resources/pre-vvv-custom.yml vvv/vvv-custom.yml
+cp resources/pre-config.yml vvv/config/config.yml
 counter=$((counter+1))
 
 cd vvv
@@ -79,8 +79,8 @@ echo -e "\033[0;32m${counter}/${total} Destroying temporary VM\033[0m"
 VVV_SKIP_LOGO=true vagrant destroy --force
 counter=$((counter+1))
 
-echo -e "\033[0;32m${counter}/${total} Copying final vvv-custom.yml\033[0m"
-cp -f ../resources/vvv-custom.yml vvv-custom.yml
+echo -e "\033[0;32m${counter}/${total} Copying final config/config.yml\033[0m"
+cp -f ../resources/config.yml config/config.yml
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Cleaning up after Vagrant\033[0m"
