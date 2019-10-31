@@ -13,8 +13,6 @@
 # located in. See the docs for how to define these, and what all the keys
 # and options are
 sites:
-  # The wordpress-default configuration provides an installation of the
-  # latest version of WordPress.
   wordpress-one:
     description: "A generic standard WordPress install"
     repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template.git
@@ -27,9 +25,17 @@ sites:
     hosts:
       - two.wordpress.test
 
-  # The wordpress-develop configuration is useful for contributing to WordPress.
-  wordpress-develop:
-    decription: "A site for contributing and working with WordPress core"
+  wordpress-multisite:
+    description: "A multisite WordPress install"
+    repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template.git
+    hosts:
+      - multisite.wordpress.test
+    custom:
+      wp_type: subdirectory
+
+  # The wordpress-trunk configuration is useful for contributing to WordPress.
+  wordpress-trunk:
+    decription: "A site for contributing to WordPress core"
     repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template-develop.git
     hosts:
       - trunk.wordpress.test
@@ -45,12 +51,26 @@ sites:
 
   # The following commented out site configuration will create a environment useful
   # for contributions to the WordPress meta team:
-  
+
   wordpress-meta-environment:
-    description: "A collection of sites for contributing to the WordPress meta team."
+    description: "A collection of sites for contributing to the WordPress.org meta team."
     repo: https://github.com/WordPress/meta-environment.git
     hosts:
       - wp-meta.test
+      - codex.buddypressorg.test
+      - es.buddypressorg.test
+      - codex.bbpressorg.test
+      - jobs.wordpressnet.test
+      - wordcamp.test
+      - central.wordcamp.test
+      - 2014.seattle.wordcamp.test
+      - wordpressorg.test
+      - developer.wordpressorg.test
+      - global.wordpressorg.test
+      - es.wordpressorg.test
+      - ja.wordpressorg.test
+      - translate.wordpressorg.test
+      - wordpresstv.test
     custom:
       provision_site:
         "buddypressorg.test": true
@@ -67,8 +87,8 @@ utilities:
     - opcache-status
     - phpmyadmin
     - webgrind
-    - trusted-hosts
     - tls-ca
+    - php
 
 # vm_config controls how Vagrant provisions the virtual machine, and can be used to
 # increase the memory given to VVV and the number of CPU cores. 
@@ -83,7 +103,7 @@ vm_config:
 
   # this tells VVV to use the prebuilt box copied from the USB drive at contributor days
   # once set to false, do not change back to true, and reprovision
-  wordcamp_contributor_day_box: true
+  wordcamp_contributor_day_box: false
   provider: virtualbox
 
 general:
