@@ -8,7 +8,7 @@ not_suggested_path=(
     '/media/'
 )
 proceed=true
-current_directory=`pwd`
+current_directory=$(pwd)
 
 echo -e "\033[0;32mHello! This script will generate a build folder containing a copy of VVV with instructions and installers.\033[0m"
 echo -e "\033[0;32mOnce this script finishes succesfully, you can copy the contents of the build folder on to USB drives!\033[0m"
