@@ -55,7 +55,7 @@ counter=$((counter+1))
 
 cd vvv
 
-echo -e "\033[0;32m${counter}/${total} Installing the vagrant hosts updater plugin\033[0m"
+echo -e "\033[0;32m${counter}/${total} Installing the vagrant goodhosts plugin\033[0m"
 VVV_SKIP_LOGO=true vagrant plugin install --local
 counter=$((counter+1))
 
@@ -105,40 +105,40 @@ echo -e "\033[0;32m${counter}/${total} Downloading installers\033[0m"
 
 mkdir -p installers/windows installers/mac
 
-if [ ! -f installers/windows/vagrant.2.2.4.msi ]; then
-    curl -L --silent https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.msi -o installers/windows/vagrant.2.2.4.msi &
+if [ ! -f installers/windows/vagrant.2.2.9.msi ]; then
+    curl -L --silent https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.9_x86_64.msi -o installers/windows/vagrant.2.2.9.msi &
 fi
-if [ ! -f installers/mac/vagrant.2.2.4.dmg ]; then
-    curl -L --silent https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.dmg -o installers/mac/vagrant.2.2.4.dmg &
+if [ ! -f installers/mac/vagrant.2.2.9.dmg ]; then
+    curl -L --silent https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.9_x86_64.dmg -o installers/mac/vagrant.2.2.9.dmg &
 fi
 if [ ! -f installers/windows/virtualbox.5.2.26.exe ]; then
     curl -L --silent https://download.virtualbox.org/virtualbox/5.2.26/VirtualBox-5.2.26-128414-Win.exe -o installers/windows/virtualbox.5.2.26.exe &
 fi
-if [ ! -f installers/mac/virtualbox.6.0.4.dmg ]; then
-    curl -L --silent https://download.virtualbox.org/virtualbox/6.0.4/VirtualBox-6.0.4-128413-OSX.dmg -o installers/mac/virtualbox.6.0.4.dmg &
+if [ ! -f installers/mac/virtualbox.6.1.10.dmg ]; then
+    curl -L --silent https://download.virtualbox.org/virtualbox/6.1.10/VirtualBox-6.1.10-138449-OSX.dmg -o installers/mac/virtualbox.6.1.10.dmg &
 fi
-if [ ! -f installers/windows/git.2.21.exe ]; then
-    curl -L --silent https://github.com/git-for-windows/git/releases/download/v2.21.0.windows.1/Git-2.21.0-64-bit.exe -o installers/windows/git.2.21.exe &
+if [ ! -f installers/windows/git.2.27.exe ]; then
+    curl -L --silent https://github.com/git-for-windows/git/releases/download/v2.27.0.windows.1/Git-2.27.0-64-bit.exe -o installers/windows/git.2.27.exe &
 fi
 wait
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Copying installers\033[0m"
 mkdir -p build/windows build/mac
-cp -f installers/windows/vagrant.2.2.4.msi build/windows/
+cp -f installers/windows/vagrant.2.2.9.msi build/windows/
 cp -f installers/windows/virtualbox.5.2.26.exe build/windows/
-cp -f installers/windows/git.2.21.exe build/windows/
+cp -f installers/windows/git.2.27.exe build/windows/
 
-cp -f installers/mac/vagrant.2.2.4.dmg build/mac/
-cp -f installers/mac/virtualbox.6.0.4.dmg build/mac/
+cp -f installers/mac/vagrant.2.2.9.dmg build/mac/
+cp -f installers/mac/virtualbox.6.1.10.dmg build/mac/
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Acquiring a local copy of the Vagrant Hosts Updater plugin\033[0m"
-gem fetch vagrant-hostsupdater
+gem fetch vagrant-goodhosts
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Renaming gem file to remove the version number\033[0m"
-mv vagrant-hostsupdater-*.gem build/vagrant-hostsupdater.gem
+mv vagrant-goodhosts-*.gem build/vagrant-goodhosts.gem
 counter=$((counter+1))
 
 echo -e "\033[0;32m${counter}/${total} Copying instructions\033[0m"
