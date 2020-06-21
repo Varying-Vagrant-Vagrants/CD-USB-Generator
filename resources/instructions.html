@@ -66,7 +66,7 @@ development environment for contributing to WordPress:</p>
 <ol>
     <li>Create a directory on your computer to copy files into.</li>
     <li>Copy the contents of the <code>windows</code> or <code>mac</code> directory (as appropriate) from the USB drive onto your computer.</li>
-    <li>Copy <code>vvv.zip</code>, <code>vagrant-hostsupdater.gem</code> and <code>vvv-contribute.box</code> from the USB drive onto your computer.</li>
+    <li>Copy <code>vvv.zip</code>, <code>vagrant-goodhosts.gem</code> and <code>vvv-contribute.box</code> from the USB drive onto your computer.</li>
     <li>Copy this instructions file onto your computer so you can refer to it after passing the USB drive to someone else.</li>
     <li>Pass the USB drive on to anyone else who needs it.</li>
 </ol>
@@ -93,8 +93,9 @@ development environment for contributing to WordPress:</p>
     <li>Add the VVV box to Vagrant:
         <pre>vagrant box add vvv/contribute vvv-contribute.box</pre>
     </li>
-    <li>Install Vagrant Hosts Updater gem:
-        <pre>vagrant plugin install vagrant-hostsupdater.gem</pre>
+    <li>Install Vagrant Goodhosts gem:
+
+        <pre>vagrant plugin install vagrant-goodhosts.gem</pre>
     </li>
     <li>Extract <code>vvv.zip</code>.</li>
     <li>Now navigate into the vvv directory that was extracted from <code>vvv.zip</code> The contents should include a file named <code>Vagrantfile</code>.</li>
